@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+    <head>
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="bower_components/highlightjs/styles/idea.css">
+        <link rel="stylesheet" href="assets/presentation.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="bower_components/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section class="title-slide">
+                    <h2 style="margin-top: 10%">Frontend Services</h2>
+                    <p>@kenstruys</p>
+                </section>
+                <section class="center">
+                    <h2 class="center">People Scale > Web Scale</h2>
+                </section>
+                <section>
+                    <h2>yelp-main</h2>
+                    <ul>
+                        <li>Primary Codebase (Monolith)</li>
+                        <li>Mostly Python</li>
+                        <li>MVC web apps</li>
+                        <li>Offline Batches</li>
+                    </ul>
+                </section>
+                <section class="center">
+                    <h2 class="center">Write Code/Tests</h2>
+                </section>
+                <section class="center">
+                    <h2 class="center">Code Review</h2>
+                </section>
+                <section class="center">
+                    <h2 class="center">Deploy To Production</h2>
+                </section>
+                <section class="center">
+                    <h2 class="center">New Hires</h2>
+                    <p class="center">Production Within A Week</p>
+                </section>
+                <section>
+                    <h2>Deployment</h2>
+                    <ul>
+                        <li>Make a branch with changes</li>
+                        <li>Run the Build/Tests</li>
+                        <li>Deploy to Production</li>
+                        <li>On Failure, Deploy Previous Version</li>
+                        <li>Repeat</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Yelp 2011</h2>
+                    <ul>
+                        <li>60 Developers</li>
+                        <li>2 scheduled daily deploys</li>
+                        <li>5-8 changes in a deploy</li>
+                        <li>20,000 Tests, 20 Selenium Tests</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Yelp 2011-2013</h2>
+                    <ul>
+                        <li>60 &rarr; 200 Developers</li>
+                        <li>More Products, Code, Tests</li>
+                        <li>3 Scheduled Daily Deploys</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Deployments Get Scary</h2>
+                    <ul>
+                        <li>30+ Changes in a deploy</li>
+                        <li>50,000 Tests, 200 Selenium Tests</li>
+                        <li>No engineers knows every error case</li>
+                        <li>Rollbacks start to become common</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>99% chance a branch is bug free</h2>
+                    <p>(99/100) * 100% = 99%</p>
+                </section>
+                <section>
+                    <h2>Probability of two bug free branch</h2>
+                    <p>((99/100) * (99/100)) * 100% = 98%</p>
+                </section>
+                <section>
+                    <h2>Probability of 30 bug free branches</h2>
+                    <p>(99/100)^30 * 100% = 74%</p>
+                </section>
+                <section class="center">
+                    <h2 class="center">
+                        This isn’t working
+                    </h2>
+                    <p>we need something else</p>
+                </section>
+                <section class="center">
+                    <h2 class="center">Search Services</h2>
+                </section>
+                <section>
+                    <h2>What is a service?</h2>
+                    <ul>
+                        <li>A component that provides a service to other services</li>
+                        <li>Often done via HTTP</li>
+                        <li>For Example: The Facebook API</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>How to service</h2>
+                    <ul>
+                        <li>Usually a separate repository</li>
+                        <li>Own set of tests</li>
+                        <li>Own Deployment</li>
+                        <li>Backwards Compatible</li>
+                        <li>Share code via Libraries</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>What is a library</h2>
+                    <ul>
+                        <li>A collection of Functions/Classes/Values</li>
+                        <li>Have their own build/tests</li>
+                        <li>Libraries can depend on other libraries</li>
+                        <li>Multiple Services can depend on libraries</li>
+                        <li>For Example: jQuery</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>2013</h2>
+                    <ul>
+                        <li>Start moving backend code to services</li>
+                        <li>Provide an API to our monolith</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Porting to Backend Services is Hard</h2>
+                    <ul>
+                        <li>Availability</li>
+                        <li>Performance</li>
+                        <li>Complex Queries</li>
+                    </ul>
+                </section>
+                <section>
+                    <pre><code>
+    user = DB.select(…)
+    business = DB.select(…)
+
+    review = DB.select(…).where(
+        business_id=business.id,
+        user_id=user.id
+    )
+
+    render(user, review, business)
+                    </code></pre>
+                    <img style="height:300px;margin-left:auto;margin-right:auto;display: block" src="assets/darwin.png">
+                </section>
+                <section>
+                    <pre><code>
+    user, business = async(
+        get_user(),
+        get_business()
+    )
+
+    review = get_review(
+        business_id=business.id,
+        user_id=user.id
+    )
+
+    render(user, review, business)
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>2014</h2>
+                    <ul>
+                        <li>~100 Production Backend Services</li>
+                        <li>200 &rarr; 300 Engineers</li>
+                        <li>60,000 Tests, 500 Selenium Tests</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>We’re Missing Something</h2>
+                    <ul>
+                        <li>Feature developers still working</li>
+                        <li>User impact dependant on the monolith</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>The Beginning of Frontend Services</h2>
+                    <ul>
+                        <li>Services that render HTML</li>
+                        <li>Need Same Look and Feel as Existing Product</li>
+                        <li>Can be slightly out of sync (temporarily)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Focus on why</h2>
+                    <ul>
+                        <li>We want a more stable product</li>
+                        <li>We want moving to be fast</li>
+                        <li>We want faster deployments</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Best Approach</h2>
+                    <ul>
+                        <li>Make libraries from existing code</li>
+                        <li>Don't Over Engineer</li>
+                        <li>Agile Development</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Tech Stack</h2>
+                    <ul>
+                        <li>Pyramid Web Framework</li>
+                        <li>bower and PyPi</li>
+                        <li>libsass</li>
+                        <li>Google Closure Compiler</li>
+                        <li>pytest/karma</li>
+                        <li>swagger</li>
+                        <li>Jenkins/TravisCI</li>
+                    </ul>
+                </section>
+                <section>
+                    <img src="assets/styleguide.png">
+                </section>
+                <section>
+                    <img src="assets/brand.png">
+                </section>
+                <section>
+                    <img src="assets/headers.png">
+                </section>
+                <section>
+                    <img src="assets/careers.png">
+                </section>
+                <section>
+                    <img src="assets/user_details.png">
+                </section>
+                <section>
+                    <h2>What's next?</h2>
+                    <ul>
+                        <li>Mobile API as a Service</li>
+                        <li>Continue extracting libraries</li>
+                        <li>Enable more developers</li>
+                    </ul>
+                </section>
+                <section class="center">
+                    <h2 class="center">Thanks!</h2>
+                </section>
+            </div>
+        </div>
+
+        <script src="bower_components/jquery/jquery.min.js"></script>
+        <script src="bower_components/reveal.js/js/reveal.min.js"></script>
+        <script src="bower_components/highlightjs/highlight.pack.js"></script>
+        <script type="text/javascript">
+            $('section')
+                    .attr('data-background', "assets/background.png");
+
+            $('section.title-slide')
+                .attr('data-background', "assets/title_background.png");
+
+
+            Reveal.initialize({
+                history: true,
+                transition: 'linear',
+                center: false,
+                keyboard: {
+                    39: 'next',
+                    37: 'prev'
+                }
+            });
+            hljs.initHighlightingOnLoad();
+
+            $('.slide-background').css('background-position', '50% 100%');
+        </script>
+    </body>
+
+</html>

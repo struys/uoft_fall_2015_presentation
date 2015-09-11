@@ -1,0 +1,61 @@
+@import "../bower_components/reveal.js/css/theme/template/mixins";
+@import "../bower_components/reveal.js/css/theme/template/settings";
+
+$mainFont: 'Arial', sans-serif;
+$headingFont: 'Arial', sans-serif;
+$mainColor: #666;
+$headingColor: #000;
+$backgroundColor: #f5f5f0;
+$headingTextShadow: none;
+$selectionBackgroundColor: #fff;
+$linkColor: #000;
+$linkColorHover: #000;
+$headingLineHeight: 1em;
+
+@import "../bower_components/reveal.js/css/theme/template/theme";
+
+section {
+    text-align: left;
+}
+
+.reveal {
+    h1, h2, h3, h4, h5, h6 {
+        text-transform: none;
+    }
+}
+
+.reveal *.center {
+    text-align: center;
+}
+
+.reveal pre {
+  box-shadow: none;
+  border: 1px solid #ccccc8;
+  border-radius: 4px;
+  background-color: #f5f5f1;
+}
+
+.reveal:after {
+  background: url(footer_big.png) no-repeat;
+  height: 420px;
+  width: 1280px;
+}
+
+.reveal .controls {
+  left: 10px;
+  right: auto;
+}
+
+.reveal li {
+  padding-bottom: 0.5em;
+}
+
+.reveal section img {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.reveal section ul ol {
+  padding-left: 1em;
+}

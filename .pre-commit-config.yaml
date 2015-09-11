@@ -1,0 +1,18 @@
+-   repo: git@github.com:pre-commit/pre-commit-hooks
+    sha: 4078cbedf0360dce2b7cd02cb2812fc50b76b98d
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-docstring-first
+    -   id: check-json
+    -   id: check-added-large-files
+    -   id: check-yaml
+    -   id: requirements-txt-fixer
+-   repo: git://github.com/pre-commit/mirrors-jshint
+    sha: e86225836aadd058036f47a6de9b0ee0440476eb
+    hooks:
+    -   id: jshint
+-   repo: git://github.com/pre-commit/mirrors-scss-lint
+    sha: ce46c548f01433ab1e4587bf993304b52d1b93bc
+    hooks:
+    -   id: scss-lint

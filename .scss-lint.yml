@@ -1,0 +1,9 @@
+linters:
+  NameFormat:
+    exclude:
+      - 'assets/yelp_reveal.scss'
+  MergeableSelector:
+    enabled: false
+  SelectorDepth:
+    exclude:
+      - 'assets/yelp_reveal.scss'
