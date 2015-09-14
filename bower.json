@@ -1,14 +1,15 @@
 {
-	"name": "Selenium Presentation",
+	"name": "Frontend Services Presentation",
 	"version": "0.0.1",
-	"description": "Selenium Presentation",
+	"description": "Frontend Services Presentation",
 	"authors": [
-		"Ken Struys",
-		"Anthony Sottile"
+		"Ken Struys"
 	],
 	"dependencies": {
 		"jquery": "1.9",
 		"reveal.js": "2.6.1",
-		"highlightjs": "7.5.0"
+		"highlightjs": "7.5.0",
+        "MathJax": "2.5.3",
+        "chartist": "0.9.4"
 	}
 }

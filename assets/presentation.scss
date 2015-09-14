@@ -1,4 +1,5 @@
 @import "yelp_reveal";
+@import "../bower_components/chartist/dist/chartist.min";
 
 ol.stack-table {
   border: 1px solid #333;
@@ -33,4 +34,8 @@ ol.stack-table {
   color: #fff;
   padding: 1em;
 
+}
+
+.ct-label {
+    display: none !important;
 }

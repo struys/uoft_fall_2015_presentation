@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
         <link rel="stylesheet" href="bower_components/highlightjs/styles/idea.css">
         <link rel="stylesheet" href="assets/presentation.css">
+        <script src="bower_components/MathJax/MathJax.js?config=AM_HTMLorMML-full"></script>
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
         <script>
@@ -20,15 +21,20 @@
                     <p>@kenstruys</p>
                 </section>
                 <section class="center">
-                    <h2 class="center">People Scale > Web Scale</h2>
+                    <h2>Yelp’s Mission</h2>
+                    <p>Connecting people with great local businesses.</p>
+                    <img style="width:50%" src="assets/yelp_mission.png">
+                </section>
+                <section class="center">
+                    <h2 class="center">People Scale >> Web Scale</h2>
                 </section>
                 <section>
                     <h2>yelp-main</h2>
                     <ul>
-                        <li>Primary Codebase (Monolith)</li>
+                        <li>Primary codebase (monolith)</li>
                         <li>Mostly Python</li>
                         <li>MVC web apps</li>
-                        <li>Offline Batches</li>
+                        <li>Offline batches</li>
                     </ul>
                 </section>
                 <section class="center">
@@ -40,17 +46,17 @@
                 <section class="center">
                     <h2 class="center">Deploy To Production</h2>
                 </section>
-                <section class="center">
-                    <h2 class="center">New Hires</h2>
+                <section class="center" data-background-image="assets/andy.gif" style="color:white; -webkit-text-stroke: 2px #111; font-size:2em;">
+                    <h2 class="center" style="color:white; -webkit-text-stroke: 2px #111; font-size:2em;">New Devs</h2>
                     <p class="center">Production Within A Week</p>
                 </section>
                 <section>
                     <h2>Deployment</h2>
                     <ul>
                         <li>Make a branch with changes</li>
-                        <li>Run the Build/Tests</li>
-                        <li>Deploy to Production</li>
-                        <li>On Failure, Deploy Previous Version</li>
+                        <li>Run the build/tests</li>
+                        <li>Deploy to production</li>
+                        <li>On failure, deploy previous version</li>
                         <li>Repeat</li>
                     </ul>
                 </section>
@@ -59,7 +65,7 @@
                     <ul>
                         <li>60 Developers</li>
                         <li>2 scheduled daily deploys</li>
-                        <li>5-8 changes in a deploy</li>
+                        <li>5 - 8 changes per deploy</li>
                         <li>20,000 Tests, 20 Selenium Tests</li>
                     </ul>
                 </section>
@@ -67,42 +73,46 @@
                     <h2>Yelp 2011-2013</h2>
                     <ul>
                         <li>60 &rarr; 200 Developers</li>
-                        <li>More Products, Code, Tests</li>
-                        <li>3 Scheduled Daily Deploys</li>
+                        <li>More products, code, tests</li>
+                        <li>3 Scheduled daily deploys</li>
                     </ul>
                 </section>
                 <section>
                     <h2>Deployments Get Scary</h2>
                     <ul>
-                        <li>30+ Changes in a deploy</li>
+                        <li>30+ changes per deploy</li>
                         <li>50,000 Tests, 200 Selenium Tests</li>
-                        <li>No engineers knows every error case</li>
+                        <li>No dev knows every error case</li>
                         <li>Rollbacks start to become common</li>
                     </ul>
                 </section>
-                <section>
-                    <h2>99% chance a branch is bug free</h2>
-                    <p>(99/100) * 100% = 99%</p>
-                </section>
-                <section>
-                    <h2>Probability of two bug free branch</h2>
-                    <p>((99/100) * (99/100)) * 100% = 98%</p>
-                </section>
-                <section>
-                    <h2>Probability of 30 bug free branches</h2>
-                    <p>(99/100)^30 * 100% = 74%</p>
+                <section class="center">
+                    <h2 class="center" style="text-align:center; font-size:1.5em">
+                        `(99/100) * 100% = 99%`
+                    </h2>
+                    <p>99% Chance a Branch is Bug Free</p>
                 </section>
                 <section class="center">
-                    <h2 class="center">
-                        This isn’t working
+                    <h2 class="center" style="text-align:center; font-size:1.5em">
+                        `(99/100 * 99/100) * 100% = 98%`
                     </h2>
-                    <p>we need something else</p>
+                    <p>2 Bug Free Branches</p>
+                </section>
+                <section class="center">
+                    <h2 class="center" style="text-align:center; font-size:1.5em">
+                        `(99/100)^30 * 100% = 74%`
+                    </h2>
+                    <p>30 Bug Free Branches</p>
+                </section>
+                <section class="center graph">
+                    <h2>This Isn’t Working</h2>
+                    <div class="ct-chart"></div>
                 </section>
                 <section class="center">
                     <h2 class="center">Search Services</h2>
                 </section>
                 <section>
-                    <h2>What is a service?</h2>
+                    <h2>What is a Service?</h2>
                     <ul>
                         <li>A component that provides a service to other services</li>
                         <li>Often done via HTTP</li>
@@ -110,22 +120,22 @@
                     </ul>
                 </section>
                 <section>
-                    <h2>How to service</h2>
+                    <h2>How to Service</h2>
                     <ul>
                         <li>Usually a separate repository</li>
                         <li>Own set of tests</li>
-                        <li>Own Deployment</li>
-                        <li>Backwards Compatible</li>
-                        <li>Share code via Libraries</li>
+                        <li>Own deployment</li>
+                        <li>Backwards compatible</li>
+                        <li>Share code via libraries</li>
                     </ul>
                 </section>
                 <section>
-                    <h2>What is a library</h2>
+                    <h2>What is a Library?</h2>
                     <ul>
-                        <li>A collection of Functions/Classes/Values</li>
+                        <li>A collection of functions/classes/values</li>
                         <li>Have their own build/tests</li>
                         <li>Libraries can depend on other libraries</li>
-                        <li>Multiple Services can depend on libraries</li>
+                        <li>Multiple services can depend on libraries</li>
                         <li>For Example: jQuery</li>
                     </ul>
                 </section>
@@ -137,7 +147,7 @@
                     </ul>
                 </section>
                 <section>
-                    <h2>Porting to Backend Services is Hard</h2>
+                    <h2>Backend Services are Hard</h2>
                     <ul>
                         <li>Availability</li>
                         <li>Performance</li>
@@ -158,7 +168,7 @@
                     </code></pre>
                     <img style="height:300px;margin-left:auto;margin-right:auto;display: block" src="assets/darwin.png">
                 </section>
-                <section>
+                <section class="center">
                     <pre><code>
     user, business = async(
         get_user(),
@@ -177,22 +187,22 @@
                     <h2>2014</h2>
                     <ul>
                         <li>~100 Production Backend Services</li>
-                        <li>200 &rarr; 300 Engineers</li>
+                        <li>200 &rarr; 300 Developers</li>
                         <li>60,000 Tests, 500 Selenium Tests</li>
                     </ul>
                 </section>
                 <section>
                     <h2>We’re Missing Something</h2>
                     <ul>
-                        <li>Feature developers still working</li>
+                        <li>Feature development is still slow</li>
                         <li>User impact dependant on the monolith</li>
                     </ul>
                 </section>
                 <section>
-                    <h2>The Beginning of Frontend Services</h2>
+                    <h2>Frontend Services</h2>
                     <ul>
                         <li>Services that render HTML</li>
-                        <li>Need Same Look and Feel as Existing Product</li>
+                        <li>Need same look and feel as existing product</li>
                         <li>Can be slightly out of sync (temporarily)</li>
                     </ul>
                 </section>
@@ -217,6 +227,7 @@
                     <ul>
                         <li>Pyramid Web Framework</li>
                         <li>bower and PyPi</li>
+                        <li>yelp_cheetah</li>
                         <li>libsass</li>
                         <li>Google Closure Compiler</li>
                         <li>pytest/karma</li>
@@ -224,19 +235,19 @@
                         <li>Jenkins/TravisCI</li>
                     </ul>
                 </section>
-                <section>
+                <section class="no-background center">
                     <img src="assets/styleguide.png">
                 </section>
-                <section>
+                <section class="no-background center">
                     <img src="assets/brand.png">
                 </section>
-                <section>
+                <section class="no-background center">
                     <img src="assets/headers.png">
                 </section>
-                <section>
+                <section class="no-background center">
                     <img src="assets/careers.png">
                 </section>
-                <section>
+                <section class="no-background center">
                     <img src="assets/user_details.png">
                 </section>
                 <section>
@@ -248,7 +259,40 @@
                     </ul>
                 </section>
                 <section class="center">
-                    <h2 class="center">Thanks!</h2>
+                    <h2 class="center">Questions?</h2>
+                    <p>Thanks!</p>
+                </section>
+                <section class="title-slide">
+                    <img style="display:block; float:left; width:49%" src="assets/logo.png">
+                    <img style="display:block; float:right; width:49%" src="assets/social.png">
+                </section>
+                <section>
+                    <h2 class="center">yelp.com/dataset_challenge</h2>
+                    <img style="display:block; float:left; width:40%" src="assets/dataset.png">
+                    <div style="display:block; float:left; width:50%; font-size:0.5em; padding: 1em; line-height: 0.8em">
+                        <p style="font-size:1.4em;">Academic dataset from 10 cities in 4 countries!</p>
+                        <ul style="float: left; width: 50%">
+                            <li>61K businesses</li>
+                            <li>61K checkin-sets</li>
+                            <li>481K business attributes</li>
+                            <li>1.6M reviews</li>
+                        </ul>
+                        <ul style="float: right; width: 40%">
+
+                            <li>366K users</li>
+                            <li>2.8M edge social-graph</li>
+                            <li>495K tips</li>
+                        </ul>
+                    </div>
+                    <div class="center" style="clear: both">
+                    <p>
+                        Your academic project, research or visualizations, submitted by Dec 31, 2015<br>
+                        =<br>
+                        $5,000 prize + $1,000 for publication + $500 for presenting*<br>
+
+                        *See full terms on website<br>
+                    </p>
+                    </div>
                 </section>
             </div>
         </div>
@@ -256,26 +300,62 @@
         <script src="bower_components/jquery/jquery.min.js"></script>
         <script src="bower_components/reveal.js/js/reveal.min.js"></script>
         <script src="bower_components/highlightjs/highlight.pack.js"></script>
+        <script src="bower_components/chartist/dist/chartist.js"></script>
         <script type="text/javascript">
             $('section')
                     .attr('data-background', "assets/background.png");
+            $('section.no-background')
+                    .attr('data-background', "");
 
             $('section.title-slide')
                 .attr('data-background', "assets/title_background.png");
-
-
             Reveal.initialize({
                 history: true,
                 transition: 'linear',
                 center: false,
+                width: 1100,
+                margin: 0.2,
                 keyboard: {
                     39: 'next',
                     37: 'prev'
                 }
             });
             hljs.initHighlightingOnLoad();
-
             $('.slide-background').css('background-position', '50% 100%');
+
+            var drawGraph = function() {
+                var series = [];
+                var labels = [];
+                for(var i=1; i<1000; i+=100) {
+                    labels.push(i);
+                    series.push(Math.floor(Math.pow((99/100), i) * 100));
+                }
+                new Chartist.Line('.ct-chart', {
+                    labels: labels,
+                    showPoint: false,
+                    height: '500px',
+                    series: [series]
+                }, {
+                    height: '500px',
+                    chartPadding: {
+                        right: '10px',
+                        bottom: '20px'
+                    },
+                    showPoint: false,
+                    fullWidth: true
+                });
+            };
+
+            drawGraph();
+
+
+            Reveal.addEventListener( 'slidechanged', function( event ) {
+                if($(event.currentSlide).hasClass('graph')) {
+                    drawGraph();
+                }
+            });
+
+
         </script>
     </body>
 

@@ -3,11 +3,12 @@
 
 $mainFont: 'Arial', sans-serif;
 $headingFont: 'Arial', sans-serif;
+$mainFontSize: 40px;
 $mainColor: #666;
-$headingColor: #000;
+$headingColor: #222;
 $backgroundColor: #f5f5f0;
 $headingTextShadow: none;
-$selectionBackgroundColor: #fff;
+$selectionBackgroundColor: #666;
 $linkColor: #000;
 $linkColorHover: #000;
 $headingLineHeight: 1em;
@@ -33,12 +34,6 @@ section {
   border: 1px solid #ccccc8;
   border-radius: 4px;
   background-color: #f5f5f1;
-}
-
-.reveal:after {
-  background: url(footer_big.png) no-repeat;
-  height: 420px;
-  width: 1280px;
 }
 
 .reveal .controls {
