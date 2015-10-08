@@ -8,4 +8,5 @@ test_venv
 *.egg-info
 *.DS_Store
 build
+bower_components
 node_modules
