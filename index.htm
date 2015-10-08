@@ -4,7 +4,7 @@
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
         <link rel="stylesheet" href="bower_components/highlightjs/styles/idea.css">
-        <link rel="stylesheet" href="assets/presentation.css">
+        <link rel="stylesheet" href="build/presentation.css">
         <script src="bower_components/MathJax/MathJax.js?config=AM_HTMLorMML-full"></script>
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -26,24 +26,16 @@
                     <img style="width:50%" src="assets/yelp_mission.png">
                 </section>
                 <section class="center">
-                    <h2>Yelp Stats</h2>
-                    <p>As of Q2 2015</p>
-                    <img style="width:75%" src="assets/yelp_stats.png">
-                </section>
-                <section class="center">
                     <h2 class="center">People Scale >> Web Scale</h2>
                 </section>
-                <section>
-                    <h2>yelp-main</h2>
-                    <ul>
-                        <li>Primary codebase (monolith)</li>
-                        <li>Mostly Python</li>
-                        <li>MVC web apps</li>
-                        <li>Offline batches</li>
-                    </ul>
+                <section class="center">
+                    <h2 class="center">Development Cycle</h2>
                 </section>
                 <section class="center">
-                    <h2 class="center">Write Code/Tests</h2>
+                    <h2 class="center">Cut a Branch</h2>
+                </section>
+                <section class="center">
+                    <h2 class="center">Write Code</h2>
                 </section>
                 <section class="center">
                     <h2 class="center">Code Review</h2>
@@ -52,10 +44,12 @@
                     <h2 class="center">Deploy To Production</h2>
                 </section>
                 <section class="center" data-background-image="assets/andy.gif" style="color:white; -webkit-text-stroke: 2px #111; font-size:2em;">
-                    <h2 class="center" style="color:white; -webkit-text-stroke: 2px #111; font-size:2em;">New Devs</h2>
-                    <p class="center">Production Within A Week</p>
+                    <div class="fragment">
+                        <h2 class="center" style="color:white; -webkit-text-stroke: 2px #111; font-size:2em;">New Devs</h2>
+                        <p class="center">Production Within A Week</p>
+                    </div>
                 </section>
-                <section>
+                <section class="left-align">
                     <h2>Deployment</h2>
                     <ul>
                         <li>Make a branch with changes</li>
@@ -65,7 +59,16 @@
                         <li>Repeat</li>
                     </ul>
                 </section>
-                <section>
+                <section class="left-align">
+                    <h2>yelp-main</h2>
+                    <ul>
+                        <li>Primary codebase (monolith)</li>
+                        <li>Mostly Python</li>
+                        <li>MVC web apps</li>
+                        <li>Offline batches</li>
+                    </ul>
+                </section>
+                <section class="left-align">
                     <h2>Yelp 2011</h2>
                     <ul>
                         <li>60 Developers</li>
@@ -74,7 +77,7 @@
                         <li>20,000 Tests, 20 Selenium Tests</li>
                     </ul>
                 </section>
-                <section>
+                <section class="left-align">
                     <h2>Yelp 2011-2013</h2>
                     <ul>
                         <li>60 &rarr; 200 Developers</li>
@@ -82,7 +85,7 @@
                         <li>3 Scheduled daily deploys</li>
                     </ul>
                 </section>
-                <section>
+                <section class="left-align">
                     <h2>Deployments Get Scary</h2>
                     <ul>
                         <li>30+ changes per deploy</li>
@@ -112,11 +115,17 @@
                 <section class="center graph">
                     <h2>This Isn't Working</h2>
                     <div class="ct-chart"></div>
+                <h2 class="center" style="text-align:center; font-size:1.5em">
+                    `(99/100)^n * 100%`
+                </h2>
+                <p class="center" style="text-align:center;">
+                    `n > 500 = 0`
+                </p>
                 </section>
                 <section class="center">
-                    <h2 class="center">Search Services</h2>
+                    <h2 class="center">Search</h2>
                 </section>
-                <section>
+                <section class="left-align">
                     <h2>What is a Service?</h2>
                     <ul>
                         <li>A component that provides a service to other services</li>
@@ -124,34 +133,35 @@
                         <li>For Example: The Facebook API</li>
                     </ul>
                 </section>
-                <section>
+                <section class="left-align">
                     <h2>How to Service</h2>
                     <ul>
                         <li>Usually a separate repository</li>
                         <li>Own set of tests</li>
                         <li>Own deployment</li>
                         <li>Backwards compatible</li>
-                        <li>Share code via libraries</li>
+                        <li>Share code via packages</li>
                     </ul>
                 </section>
-                <section>
-                    <h2>What is a Library?</h2>
+                <section class="left-align">
+                    <h2>What is a Package?</h2>
                     <ul>
                         <li>A collection of functions/classes/values</li>
                         <li>Have their own build/tests</li>
-                        <li>Libraries can depend on other libraries</li>
-                        <li>Multiple services can depend on libraries</li>
+                        <li>Packages can depend on other packages</li>
+                        <li>Multiple services can depend on packages</li>
+                        <li>Packages are versioned</li>
                         <li>For Example: jQuery</li>
                     </ul>
                 </section>
-                <section>
+                <section class="left-align">
                     <h2>2013</h2>
                     <ul>
                         <li>Start moving backend code to services</li>
                         <li>Provide an API to our monolith</li>
                     </ul>
                 </section>
-                <section>
+                <section class="left-align">
                     <h2>Backend Services are Hard</h2>
                     <ul>
                         <li>Availability</li>
@@ -159,7 +169,7 @@
                         <li>Complex Queries</li>
                     </ul>
                 </section>
-                <section>
+                <!--<section>
                     <pre><code>
     user = DB.select(…)
     business = DB.select(…)
@@ -187,8 +197,8 @@
 
     render(user, review, business)
                     </code></pre>
-                </section>
-                <section>
+                </section>-->
+                <section class="left-align">
                     <h2>2014</h2>
                     <ul>
                         <li>~100 Production Backend Services</li>
@@ -196,14 +206,14 @@
                         <li>60,000 Tests, 500 Selenium Tests</li>
                     </ul>
                 </section>
-                <section>
+                <section class="left-align">
                     <h2>We're Missing Something</h2>
                     <ul>
                         <li>Feature development is still slow</li>
                         <li>User impact dependant on the monolith</li>
                     </ul>
                 </section>
-                <section>
+                <section class="left-align">
                     <h2>Frontend Services</h2>
                     <ul>
                         <li>Services that render HTML</li>
@@ -211,23 +221,25 @@
                         <li>Can be slightly out of sync (temporarily)</li>
                     </ul>
                 </section>
-                <section>
+               <!--<section>
                     <h2>Focus on why</h2>
                     <ul>
                         <li>We want a more stable product</li>
                         <li>We want moving to be fast</li>
                         <li>We want faster deployments</li>
                     </ul>
-                </section>
-                <section>
+                </section>-->
+                <section class="left-align">
                     <h2>Best Approach</h2>
                     <ul>
+                        <li>Focus on making movement fast</li>
                         <li>Make libraries from existing code</li>
-                        <li>Don't Over Engineer</li>
-                        <li>Agile Development</li>
+                        <li>Leverage backend services</li>
+                        <li>Don't over engineer be agile</li>
+                        <li>Should be 50% faster next time</li>
                     </ul>
                 </section>
-                <section>
+                <section class="left-align">
                     <h2>Tech Stack</h2>
                     <ul>
                         <li>Pyramid Web Framework</li>
@@ -242,6 +254,12 @@
                         <li>Jenkins/TravisCI</li>
                     </ul>
                 </section>
+                <section class="center">
+                    <h2>Where did we start?</h2>
+                </section>
+                <section class="no-background center">
+                    <img src="assets/google-styleguide.png">
+                </section>
                 <section class="no-background center">
                     <img src="assets/styleguide.png">
                 </section>
@@ -255,6 +273,9 @@
                     <img src="assets/careers.png">
                 </section>
                 <section class="no-background center">
+                    <h2>30+ Pages Overnight</h2>
+                </section>
+                <section class="no-background center">
                     <img src="assets/user_details.png">
                 </section>
                 <section>
@@ -266,8 +287,8 @@
                     </ul>
                 </section>
                 <section class="center">
-                    <h2 class="center">Questions?</h2>
-                    <p>Thanks!</p>
+                    <h2 class="center">Thanks!</h2>
+                    <p>Questions?</p>
                 </section>
                 <section class="title-slide">
                     <img style="display:block; float:left; width:49%" src="assets/logo.png">
@@ -327,6 +348,7 @@
                     37: 'prev'
                 }
             });
+            $('section.left-align').css('text-align', 'left').addClass('center');
             hljs.initHighlightingOnLoad();
             $('.slide-background').css('background-position', '50% 100%');
 
@@ -343,7 +365,7 @@
                     height: '500px',
                     series: [series]
                 }, {
-                    height: '500px',
+                    height: '200px',
                     chartPadding: {
                         right: '10px',
                         bottom: '20px'

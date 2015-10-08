@@ -1,7 +1,7 @@
-all: scss
+all: scss bower_components
 
 .PHONY: scss
-scss: assets/pre_commit_reveal.css assets/presentation.css
+scss: build/presentation.css
 
 venv: requirements.txt
 	rm -rf venv && virtualenv venv && . venv/bin/activate && pip install -r requirements.txt
@@ -15,9 +15,9 @@ nenv: venv
 bower_components: nenv bower.json
 	sh -c ". nenv/bin/activate && bower install"
 
-%.css: %.scss bower_components
-	sh -c ". nenv/bin/activate && node-sass $< -o assets/"
+build/presentation.css: assets/presentation.scss bower_components
+	sh -c ". nenv/bin/activate && node-sass $< -o build/"
 
 clean:
-	rm -rf venv nenv bower_components assets/*.css
+	rm -rf venv nenv bower_components build
 	find . -iname '*.pyc' -delete

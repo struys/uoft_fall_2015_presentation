@@ -7,4 +7,5 @@ test_venv
 *.pyc
 *.egg-info
 *.DS_Store
+build
 node_modules
